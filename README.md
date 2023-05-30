@@ -9,7 +9,6 @@ Optimizer Utils
 |----------|:-------------:|:------:|------:|
 |  [Lion](#Lion)  |  2023  |  [Lion-optim](https://github.com/google/automl/blob/master/lion/lion_pytorch.py) |  [Symbolic Discovery of Optimization Algorithms](https://arxiv.org/pdf/2302.06675.pdf)
 |  [Adan](#Adan)  |  2022  |  [Adan-optim](https://github.com/lucidrains/Adan-pytorch) |  [Adan: Adaptive Nesterov Momentum Algorithm for Faster Optimizing Deep Models](https://arxiv.org/pdf/2208.06677.pdf)
-|  [SAM](#SAM)  |  2021  |  [SAM-optim](https://github.com/davda54/sam) |  [SHARPNESS-AWARE MINIMIZATION FOR EFFICIENTLY IMPROVING GENERALIZATION](https://arxiv.org/pdf/2010.01412.pdf)
 |  [MADGRAD](#MADGRAD)  |  2021  | [madgrad](https://github.com/facebookresearch/madgrad) | [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) 
 |  [AdaBelief](#AdaBelief)  |  2020  | [AdaBelief-optim](https://github.com/juntang-zhuang/Adabelief-Optimizer) | [AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients](https://arxiv.org/abs/2010.07468) 
 |  [AdamP](#AdamP)  |  2020  | [Adamp-optim](https://github.com/clovaai/AdamP) | [Slowing Down the Weight Norm Increase in Momentum-based Optimizers](https://arxiv.org/abs/2006.08217) 

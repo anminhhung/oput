@@ -30,7 +30,6 @@ from .adan import Adan
 from .adam import Adam
 from .sgd import SGD
 from .lion import Lion
-from .sam import SAM
 
 __all__ = (
     'Adan',
@@ -61,7 +60,6 @@ __all__ = (
     'Ranger',
     'RangerQH',
     'RangerVA',
-    'SAM',
     'SGDP',
     'SGDW',
     'SWATS',
@@ -96,7 +94,6 @@ _package_opts = [
     Ranger,
     RangerQH,
     RangerVA,
-    SAM,
     SGDP,
     SGDW,
     SGD,
