@@ -8,8 +8,8 @@ Optimizer Utils
 | Optimizer   |      Year      |  Reference Code | Paper |
 |----------|:-------------:|:------:|------:|
 |  [Lion](#Lion)  |  2023  |  [Lion-optim](https://github.com/google/automl/blob/master/lion/lion_pytorch.py) |  [Symbolic Discovery of Optimization Algorithms](https://arxiv.org/pdf/2302.06675.pdf)
-|  [Sgem](#Sgem)  |  2022  |  [Sgem-optim](https://github.com/txping/SGEM/blob/main/optims/sgem.py) |  [SGEM: STOCHASTIC GRADIENT WITH ENERGY AND MOMENTUM](https://arxiv.org/pdf/2208.02208v1.pdf)
 |  [Adan](#Adan)  |  2022  |  [Adan-optim](https://github.com/lucidrains/Adan-pytorch) |  [Adan: Adaptive Nesterov Momentum Algorithm for Faster Optimizing Deep Models](https://arxiv.org/pdf/2208.06677.pdf)
+|  [SAM](#SAM)  |  2021  |  [SAM-optim](https://github.com/davda54/sam) |  [SHARPNESS-AWARE MINIMIZATION FOR EFFICIENTLY IMPROVING GENERALIZATION](https://arxiv.org/pdf/2010.01412.pdf)
 |  [MADGRAD](#MADGRAD)  |  2021  | [madgrad](https://github.com/facebookresearch/madgrad) | [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) 
 |  [AdaBelief](#AdaBelief)  |  2020  | [AdaBelief-optim](https://github.com/juntang-zhuang/Adabelief-Optimizer) | [AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients](https://arxiv.org/abs/2010.07468) 
 |  [AdamP](#AdamP)  |  2020  | [Adamp-optim](https://github.com/clovaai/AdamP) | [Slowing Down the Weight Norm Increase in Momentum-based Optimizers](https://arxiv.org/abs/2006.08217) 
@@ -56,25 +56,6 @@ optimizer.step()
 ```
 
 ---------
-## Sgem
-
-
-```
-import oput
-
-# model = ...
-optimizer = oput.SGEM(
-    model.parameters(),
-    lr = 1e-3,                 
-    c=1.0, 
-    momentum=0.9, 
-    weight_decay=0   
-)
-
-optimizer.step()
-```
-
----------
 ## Adan
 
 
@@ -87,6 +68,24 @@ optimizer = oput.Adan(
     lr = 1e-3,                 
     betas = (0.1, 0.1, 0.001),
     weight_decay = 0       
+)
+
+optimizer.step()
+```
+
+---------
+## SAM
+
+```
+import oput
+
+# model = ...
+base_optimizer = torch.optim.SGD  # define an optimizer for the "sharpness-aware" update
+optimizer = oput.SAM(
+    model.parameters(), 
+    base_optimizer, 
+    lr=0.1, 
+    momentum=0.9
 )
 
 optimizer.step()
