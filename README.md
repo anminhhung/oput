@@ -3,12 +3,11 @@
 Optimizer Utils
 
 
-
-A2GradExp
 ---------
+A2GradExp
 
-.. code:: python
 
+```
     import oput
 
     # model = ...
@@ -18,18 +17,16 @@ A2GradExp
         lips=10.0,
         rho=0.5,
     )
-
+```
 
 **Paper**: *Optimal Adaptive and Accelerated Stochastic Gradient Descent* (2018) [https://arxiv.org/abs/1810.00553]
 
 **Reference Code**: https://github.com/severilov/A2Grad_optimizer
 
-
-A2GradInc
 ---------
+A2GradInc
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -38,18 +35,17 @@ A2GradInc
         beta=10.0,
         lips=10.0,
     )
-
+```
 
 **Paper**: *Optimal Adaptive and Accelerated Stochastic Gradient Descent* (2018) [https://arxiv.org/abs/1810.00553]
 
 **Reference Code**: https://github.com/severilov/A2Grad_optimizer
 
-
-A2GradUni
 ---------
+A2GradUni
 
-.. code:: python
 
+```
     import oput
 
     # model = ...
@@ -58,18 +54,16 @@ A2GradUni
         beta=10.0,
         lips=10.0,
     )
-
+```
 
 **Paper**: *Optimal Adaptive and Accelerated Stochastic Gradient Descent* (2018) [https://arxiv.org/abs/1810.00553]
 
 **Reference Code**: https://github.com/severilov/A2Grad_optimizer
 
-
-AccSGD
 ------
+AccSGD
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -81,18 +75,17 @@ AccSGD
         small_const=0.7,
         weight_decay=0
     )
-
+```
 
 **Paper**: *On the insufficiency of existing momentum schemes for Stochastic Optimization* (2019) [https://arxiv.org/abs/1803.05591]
 
 **Reference Code**: https://github.com/rahulkidambi/AccSGD
 
-
-AdaBelief
 ---------
 
-.. code:: python
+AdaBelief
 
+```
     import oput
 
     # model = ...
@@ -107,18 +100,16 @@ AdaBelief
         fixed_decay=False,
         rectify=False,
     )
-
+```
 
 **Paper**: *AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients* (2020) [https://arxiv.org/abs/2010.07468]
 
 **Reference Code**: https://github.com/juntang-zhuang/Adabelief-Optimizer
 
-
-AdaBound
 --------
+AdaBound
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -132,17 +123,16 @@ AdaBound
         weight_decay=0,
         amsbound=False,
     )
-
+```
 
 **Paper**: *Adaptive Gradient Methods with Dynamic Bound of Learning Rate* (2019) [https://arxiv.org/abs/1902.09843]
 
 **Reference Code**: https://github.com/Luolc/AdaBound
 
-AdaMod
 ------
+AdaMod
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -154,16 +144,16 @@ AdaMod
         eps=1e-8,
         weight_decay=0,
     )
+```
 
 **Paper**: *An Adaptive and Momental Bound Method for Stochastic Learning.* (2019) [https://arxiv.org/abs/1910.12249]
 
 **Reference Code**: https://github.com/lancopku/AdaMod
 
-AdamP
 ------
+AdamP
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -177,17 +167,16 @@ AdamP
         wd_ratio = 0.1
     )
     optimizer.step()
+```
 
 **Paper**: *Slowing Down the Weight Norm Increase in Momentum-based Optimizers.* (2020) [https://arxiv.org/abs/2006.08217]
 
 **Reference Code**: https://github.com/clovaai/AdamP
 
-
-AggMo
 -----
+AggMo
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -198,17 +187,16 @@ AggMo
         weight_decay=0,
     )
     optimizer.step()
+```
 
 **Paper**: *Aggregated Momentum: Stability Through Passive Damping.* (2019) [https://arxiv.org/abs/1804.00325]
 
 **Reference Code**: https://github.com/AtheMathmo/AggMo
 
-
-Apollo
 ------
+Apollo
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -222,17 +210,17 @@ Apollo
         weight_decay=0,
     )
     optimizer.step()
+```
 
 **Paper**: *Apollo: An Adaptive Parameter-wise Diagonal Quasi-Newton Method for Nonconvex Stochastic Optimization.* (2020) [https://arxiv.org/abs/2009.13586]
 
 **Reference Code**: https://github.com/XuezheMax/apollo
 
-
+---------
 DiffGrad
---------
 
-.. code:: python
 
+```
     import oput
 
     # model = ...
@@ -244,17 +232,16 @@ DiffGrad
         weight_decay=0,
     )
     optimizer.step()
-
+```
 
 **Paper**: *diffGrad: An Optimization Method for Convolutional Neural Networks.* (2019) [https://arxiv.org/abs/1909.11015]
 
 **Reference Code**: https://github.com/shivram1987/diffGrad
 
+---------
 Lamb
-----
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -266,17 +253,16 @@ Lamb
         weight_decay=0,
     )
     optimizer.step()
-
+```
 
 **Paper**: *Large Batch Optimization for Deep Learning: Training BERT in 76 minutes* (2019) [https://arxiv.org/abs/1904.00962]
 
 **Reference Code**: https://github.com/cybertronai/pytorch-lamb
 
-Lookahead
 ---------
+Lookahead
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -292,18 +278,16 @@ Lookahead
 
     optimizer = oput.Lookahead(yogi, k=5, alpha=0.5)
     optimizer.step()
-
+```
 
 **Paper**: *Lookahead Optimizer: k steps forward, 1 step back* (2019) [https://arxiv.org/abs/1907.08610]
 
 **Reference Code**: https://github.com/alphadl/lookahead.pytorch
 
-
-MADGRAD
 ---------
+MADGRAD
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -315,18 +299,16 @@ MADGRAD
         eps=1e-6,
     )
     optimizer.step()
-
+```
 
 **Paper**: *Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization* (2021) [https://arxiv.org/abs/2101.11075]
 
 **Reference Code**: https://github.com/facebookresearch/madgrad
 
-
-NovoGrad
 --------
+NovoGrad
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -340,18 +322,16 @@ NovoGrad
         amsgrad=False,
     )
     optimizer.step()
-
+```
 
 **Paper**: *Stochastic Gradient Methods with Layer-wise Adaptive Moments for Training of Deep Networks* (2019) [https://arxiv.org/abs/1905.11286]
 
 **Reference Code**: https://github.com/NVIDIA/DeepLearningExamples/
 
-
+--------
 PID
----
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -365,18 +345,16 @@ PID
         derivative=10.0,
     )
     optimizer.step()
-
+```
 
 **Paper**: *A PID Controller Approach for Stochastic Optimization of Deep Networks* (2018) [http://www4.comp.polyu.edu.hk/~cslzhang/paper/CVPR18_PID.pdf]
 
 **Reference Code**: https://github.com/tensorboy/PIDOptimizer
 
-
-QHAdam
 ------
+QHAdam
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -390,22 +368,16 @@ QHAdam
         eps=1e-8,
     )
     optimizer.step()
-
+```
 
 **Paper**: *Quasi-hyperbolic momentum and Adam for deep learning* (2019) [https://arxiv.org/abs/1810.06801]
 
 **Reference Code**: https://github.com/facebookresearch/qhoptim
 
-
+------
 QHM
----
 
-+-------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_QHM.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_QHM.png  |
-+-------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
-
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -418,18 +390,16 @@ QHM
         weight_decay_type='grad',
     )
     optimizer.step()
-
+```
 
 **Paper**: *Quasi-hyperbolic momentum and Adam for deep learning* (2019) [https://arxiv.org/abs/1810.06801]
 
 **Reference Code**: https://github.com/facebookresearch/qhoptim
 
-
-RAdam
 -----
+RAdam
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -441,18 +411,16 @@ RAdam
         weight_decay=0,
     )
     optimizer.step()
-
+```
 
 **Paper**: *On the Variance of the Adaptive Learning Rate and Beyond* (2019) [https://arxiv.org/abs/1908.03265]
 
 **Reference Code**: https://github.com/LiyuanLucasLiu/RAdam
 
-
-Ranger
 ------
+Ranger
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -467,18 +435,16 @@ Ranger
         weight_decay=0
     )
     optimizer.step()
-
+```
 
 **Paper**: *New Deep Learning Optimizer, Ranger: Synergistic combination of RAdam + LookAhead for the best of both* (2019) [https://medium.com/@lessw/new-deep-learning-optimizer-ranger-synergistic-combination-of-radam-lookahead-for-the-best-of-2dc83f79a48d]
 
 **Reference Code**: https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer
 
-
-RangerQH
 --------
+RangerQH
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -494,18 +460,16 @@ RangerQH
         eps=1e-8,
     )
     optimizer.step()
-
+```
 
 **Paper**: *Quasi-hyperbolic momentum and Adam for deep learning* (2018) [https://arxiv.org/abs/1810.06801]
 
 **Reference Code**: https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer
 
-
-RangerVA
 --------
+RangerVA
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -524,18 +488,16 @@ RangerVA
         grad_transformer='square'
     )
     optimizer.step()
-
+```
 
 **Paper**: *Calibrating the Adaptive Learning Rate to Improve Convergence of ADAM* (2019) [https://arxiv.org/abs/1908.00700v2]
 
 **Reference Code**: https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer
 
-
-SGDP
 ----
+SGDP
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -550,18 +512,16 @@ SGDP
         wd_ratio = 0.1
     )
     optimizer.step()
-
+```
 
 **Paper**: *Slowing Down the Weight Norm Increase in Momentum-based Optimizers.* (2020) [https://arxiv.org/abs/2006.08217]
 
 **Reference Code**: https://github.com/clovaai/AdamP
 
-
-SGDW
 ----
+SGDW
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -574,18 +534,16 @@ SGDW
         nesterov=False,
     )
     optimizer.step()
-
+```
 
 **Paper**: *SGDR: Stochastic Gradient Descent with Warm Restarts* (2017) [https://arxiv.org/abs/1608.03983]
 
 **Reference Code**: https://github.com/pytorch/pytorch/pull/22466
 
-
-SWATS
 -----
+SWATS
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -599,18 +557,16 @@ SWATS
         nesterov=False,
     )
     optimizer.step()
-
+```
 
 **Paper**: *Improving Generalization Performance by Switching from Adam to SGD* (2017) [https://arxiv.org/abs/1712.07628]
 
 **Reference Code**: https://github.com/Mrpatekful/swats
 
-
-Shampoo
 -------
+Shampoo
 
-.. code:: python
-
+```
     import oput
 
     # model = ...
@@ -623,18 +579,16 @@ Shampoo
         update_freq=1,
     )
     optimizer.step()
-
+```
 
 **Paper**: *Shampoo: Preconditioned Stochastic Tensor Optimization* (2018) [https://arxiv.org/abs/1802.09568]
 
 **Reference Code**: https://github.com/moskomule/shampoo.pytorch
 
-
-Yogi
 ----
+Yogi
 
-.. code:: python
-
+```
     import optim
 
     # model = ...
@@ -647,7 +601,7 @@ Yogi
         weight_decay=0,
     )
     optimizer.step()
-
+```
 
 **Paper**: *Adaptive Methods for Nonconvex Optimization* (2018) [https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization]
 
