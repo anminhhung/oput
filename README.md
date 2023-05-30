@@ -6,7 +6,7 @@ Optimizer Utils
 Updates
 
 | Optimizer   |      Year      |  Paper | Reference Code |
-|----------|:-------------:|------:|------:|
+|----------|:-------------:|:------:|------:|
 |  [MADGRAD](#MADGRAD)  |  2021  |  [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) | [madgrad](https://github.com/facebookresearch/madgrad)
 |  [AdaBelief](#AdaBelief)  |  2020  |  [AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients](https://arxiv.org/abs/2010.07468) | [AdaBelief-optim](https://github.com/juntang-zhuang/Adabelief-Optimizer)
 |  [AdamP](#AdamP)  |  2020  |  [Slowing Down the Weight Norm Increase in Momentum-based Optimizers](https://arxiv.org/abs/2006.08217) | [Adamp-optim](https://github.com/clovaai/AdamP)
