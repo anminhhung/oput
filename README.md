@@ -7,6 +7,7 @@ Optimizer Utils
 
 | Optimizer   |      Year      |  Reference Code | Paper |
 |----------|:-------------:|:------:|------:|
+|  [Adan](#Adan)  |  2022  |  [Adan-optim](https://github.com/lucidrains/Adan-pytorch) |  [Adan: Adaptive Nesterov Momentum Algorithm for Faster Optimizing Deep Models](https://arxiv.org/pdf/2208.06677.pdf)
 |  [MADGRAD](#MADGRAD)  |  2021  | [madgrad](https://github.com/facebookresearch/madgrad) | [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) 
 |  [AdaBelief](#AdaBelief)  |  2020  | [AdaBelief-optim](https://github.com/juntang-zhuang/Adabelief-Optimizer) | [AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients](https://arxiv.org/abs/2010.07468) 
 |  [AdamP](#AdamP)  |  2020  | [Adamp-optim](https://github.com/clovaai/AdamP) | [Slowing Down the Weight Norm Increase in Momentum-based Optimizers](https://arxiv.org/abs/2006.08217) 
@@ -38,6 +39,24 @@ Optimizer Utils
 |  [Adam](#Adam)  |  2015  | [Adam-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/adam.py) |  [Adam: A Method for Stochastic Optimization](https://arxiv.org/pdf/1412.6980.pdf)
 
 ---------
+## Adan
+
+
+```
+import oput
+
+# model = ...
+optimizer = oput.Adan(
+    model.parameters(),
+    lr = 1e-3,                 
+    betas = (0.1, 0.1, 0.001),
+    weight_decay = 0       
+)
+
+optimizer.step()
+```
+
+---------
 ## A2GradExp
 
 
@@ -51,6 +70,8 @@ optimizer = oput.A2GradExp(
     lips=10.0,
     rho=0.5,
 )
+
+optimizer.step()
 ```
 
 ---------
@@ -65,6 +86,8 @@ optimizer = oput.A2GradInc(
     beta=10.0,
     lips=10.0,
 )
+
+optimizer.step()
 ```
 
 ---------
@@ -80,6 +103,8 @@ optimizer = oput.A2GradUni(
     beta=10.0,
     lips=10.0,
 )
+
+optimizer.step()
 ```
 
 ------
@@ -97,6 +122,8 @@ optimizer = oput.AccSGD(
     small_const=0.7,
     weight_decay=0
 )
+
+optimizer.step()
 ```
 
 ---------
@@ -118,6 +145,8 @@ optimizer = oput.AdaBelief(
     fixed_decay=False,
     rectify=False,
 )
+
+optimizer.step()
 ```
 
 --------
@@ -137,6 +166,8 @@ optimizer = oput.AdaBound(
     weight_decay=0,
     amsbound=False,
 )
+
+optimizer.step()
 ```
 
 
@@ -155,6 +186,8 @@ optimizer = oput.AdaMod(
     eps=1e-8,
     weight_decay=0,
 )
+
+optimizer.step()
 ```
 
 ------
@@ -173,6 +206,7 @@ optimizer = oput.AdamP(
     delta = 0.1,
     wd_ratio = 0.1
 )
+
 optimizer.step()
 ```
 
@@ -189,6 +223,7 @@ optimizer = oput.AggMo(
     betas=(0.0, 0.9, 0.99),
     weight_decay=0,
 )
+
 optimizer.step()
 ```
 
@@ -208,6 +243,7 @@ optimizer = oput.Apollo(
     init_lr=0.01,
     weight_decay=0,
 )
+
 optimizer.step()
 ```
 
@@ -226,6 +262,7 @@ optimizer = oput.DiffGrad(
     eps=1e-8,
     weight_decay=0,
 )
+
 optimizer.step()
 ```
 
@@ -244,6 +281,7 @@ optimizer = oput.Lamb(
     eps=1e-8,
     weight_decay=0,
 )
+
 optimizer.step()
 ```
 
@@ -282,6 +320,7 @@ optimizer = oput.MADGRAD(
     weight_decay=0,
     eps=1e-6,
 )
+
 optimizer.step()
 ```
 
@@ -301,6 +340,7 @@ optimizer = oput.NovoGrad(
     grad_averaging=False,
     amsgrad=False,
 )
+
 optimizer.step()
 ```
 
@@ -320,6 +360,7 @@ optimizer = oput.PID(
     integral=5.0,
     derivative=10.0,
 )
+
 optimizer.step()
 ```
 
@@ -340,6 +381,7 @@ optimizer = oput.QHAdam(
     decouple_weight_decay=False,
     eps=1e-8,
 )
+
 optimizer.step()
 ```
 
@@ -358,6 +400,7 @@ optimizer = oput.QHM(
     weight_decay=1e-2,
     weight_decay_type='grad',
 )
+
 optimizer.step()
 ```
 
@@ -375,6 +418,7 @@ optimizer = oput.RAdam(
     eps=1e-8,
     weight_decay=0,
 )
+
 optimizer.step()
 ```
 
@@ -396,6 +440,7 @@ optimizer = oput.Ranger(
     eps=1e-5,
     weight_decay=0
 )
+
 optimizer.step()
 ```
 
@@ -417,6 +462,7 @@ optimizer = oput.RangerQH(
     decouple_weight_decay=False,
     eps=1e-8,
 )
+
 optimizer.step()
 ```
 
@@ -442,6 +488,7 @@ optimizer = oput.RangerVA(
     smooth=50,
     grad_transformer='square'
 )
+
 optimizer.step()
 ```
 
@@ -462,6 +509,7 @@ optimizer = oput.SGDP(
     delta = 0.1,
     wd_ratio = 0.1
 )
+
 optimizer.step()
 ```
 
@@ -480,6 +528,7 @@ optimizer = oput.SGDW(
     weight_decay=1e-2,
     nesterov=False,
 )
+
 optimizer.step()
 ```
 
@@ -499,6 +548,7 @@ optimizer = oput.SWATS(
     amsgrad=False,
     nesterov=False,
 )
+
 optimizer.step()
 ```
 
@@ -517,6 +567,7 @@ optimizer = oput.Shampoo(
     epsilon=1e-4,
     update_freq=1,
 )
+
 optimizer.step()
 ```
 
@@ -536,6 +587,7 @@ optimizer = optim.Yogi(
     initial_accumulator=1e-6,
     weight_decay=0,
 )
+
 optimizer.step()
 ```
 
@@ -553,6 +605,7 @@ optimizer = oput.Adam(
     eps=1e-8,
     weight_decay=0
 )
+
 optimizer.step()
 ```
 
@@ -570,5 +623,6 @@ optimizer = oput.SGD(
     dampening=0,
     weight_decay=0
 )
+
 optimizer.step()
 ```
