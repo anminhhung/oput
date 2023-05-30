@@ -96,7 +96,7 @@ _package_opts = [
     SGEM,
     SGDP,
     SGDW,
-    SGD.
+    SGD,
     SWATS,
     Shampoo,
     Yogi,
