@@ -7,6 +7,7 @@ Optimizer Utils
 
 | Optimizer   |      Year      |  Reference Code | Paper |
 |----------|:-------------:|:------:|------:|
+|  [Sgem](#Sgem)  |  2022  |  [Sgem-optim](https://github.com/txping/SGEM/blob/main/optims/sgem.py) |  [SGEM: STOCHASTIC GRADIENT WITH ENERGY AND MOMENTUM](https://arxiv.org/pdf/2208.02208v1.pdf)
 |  [Adan](#Adan)  |  2022  |  [Adan-optim](https://github.com/lucidrains/Adan-pytorch) |  [Adan: Adaptive Nesterov Momentum Algorithm for Faster Optimizing Deep Models](https://arxiv.org/pdf/2208.06677.pdf)
 |  [MADGRAD](#MADGRAD)  |  2021  | [madgrad](https://github.com/facebookresearch/madgrad) | [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) 
 |  [AdaBelief](#AdaBelief)  |  2020  | [AdaBelief-optim](https://github.com/juntang-zhuang/Adabelief-Optimizer) | [AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients](https://arxiv.org/abs/2010.07468) 
@@ -37,6 +38,26 @@ Optimizer Utils
 |  [SGDW](#SGDW)  |  2017  | [SGDW-pytorch](https://github.com/pytorch/pytorch/pull/22466) |  [SGDR: Stochastic Gradient Descent with Warm Restarts](https://arxiv.org/abs/1608.03983) 
 |  [SGD](#SGD)  |  ...  |  [SGD-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/sgd.py) |  ...
 |  [Adam](#Adam)  |  2015  | [Adam-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/adam.py) |  [Adam: A Method for Stochastic Optimization](https://arxiv.org/pdf/1412.6980.pdf)
+
+
+---------
+## Sgem
+
+
+```
+import oput
+
+# model = ...
+optimizer = oput.SGEM(
+    model.parameters(),
+    lr = 1e-3,                 
+    c=1.0, 
+    momentum=0.9, 
+    weight_decay=0   
+)
+
+optimizer.step()
+```
 
 ---------
 ## Adan
