@@ -3,40 +3,39 @@
 Optimizer Utils
 
 ----
-Updates
+# Updates
 
-| Optimizer   |      Year      |  Paper | Reference Code |
+| Optimizer   |      Year      |  Reference Code | Paper |
 |----------|:-------------:|:------:|------:|
-|  [MADGRAD](#MADGRAD)  |  2021  |  [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) | [madgrad](https://github.com/facebookresearch/madgrad)
-|  [AdaBelief](#AdaBelief)  |  2020  |  [AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients](https://arxiv.org/abs/2010.07468) | [AdaBelief-optim](https://github.com/juntang-zhuang/Adabelief-Optimizer)
-|  [AdamP](#AdamP)  |  2020  |  [Slowing Down the Weight Norm Increase in Momentum-based Optimizers](https://arxiv.org/abs/2006.08217) | [Adamp-optim](https://github.com/clovaai/AdamP)
-|  [Apollo](#Apollo)  |  2020  |  [Apollo: An Adaptive Parameter-wise Diagonal Quasi-Newton Method for Nonconvex Stochastic Optimization](https://arxiv.org/abs/2009.13586) | [Apollo-optim](https://github.com/XuezheMax/apollo)
-|  [SGDP](#SGDP)  |  2020  |  [Slowing Down the Weight Norm Increase in Momentum-based Optimizers](https://arxiv.org/abs/2006.08217) | [SGDP-Clovaai](https://github.com/clovaai/AdamP)
-|  [AccSGD](#AccSGD)  |  2019  |  [On the insufficiency of existing momentum schemes for Stochastic Optimization](https://arxiv.org/abs/1803.05591) | [AccSGD-optim](https://github.com/rahulkidambi/AccSGD)
-|  [AdaBound](#AdaBound)  |  2019  |  [Adaptive Gradient Methods with Dynamic Bound of Learning Rate](https://arxiv.org/abs/1902.09843) | [SGD-pytorch-optim](https://github.com/Luolc/AdaBound)
-|  [AdaMod](#AdaMod)  |  2019  |  [An Adaptive and Momental Bound Method for Stochastic Learning](https://arxiv.org/abs/1910.12249) | [AdaBound-optim](https://github.com/lancopku/AdaMod)
-|  [AggMo](#AggMo)  |  2019  |  [Aggregated Momentum: Stability Through Passive Damping](https://arxiv.org/abs/1804.00325)| [AdaMod-optim](https://github.com/AtheMathmo/AggMo)
-|  [DiffGrad](#DiffGrad)  |  2019  |  [diffGrad: An Optimization Method for Convolutional Neural Networks](https://arxiv.org/abs/1909.11015) | [diffGrad-optim](https://github.com/shivram1987/diffGrad)
-|  [Lamb](#Lamb)  |  2019  |  [Large Batch Optimization for Deep Learning: Training BERT in 76 minutes](https://arxiv.org/abs/1904.00962) | [Lamb-optim](https://github.com/cybertronai/pytorch-lamb)
-|  [Lookahead](#Lookahead)  |  2019  |  [Lookahead Optimizer: k steps forward, 1 step back](https://arxiv.org/abs/1907.08610) | [lookahead-optim](https://github.com/alphadl/lookahead.pytorch)
-|  [NovoGrad](#NovoGrad)  |  2019  |  [Stochastic Gradient Methods with Layer-wise Adaptive Moments for Training of Deep Networks](https://arxiv.org/abs/1905.11286) | [NovoGrad-optim](https://github.com/NVIDIA/DeepLearningExamples/)
-|  [QHAdam](#QHAdam)  |  2019  |  [Quasi-hyperbolic momentum and Adam for deep learning](https://arxiv.org/abs/1810.06801) | [QHAdam-optim](https://github.com/facebookresearch/qhoptim)
-|  [QHM](#QHM)  |  2019  |  [Quasi-hyperbolic momentum and Adam for deep learning](https://arxiv.org/abs/1810.06801) | [qhoptim](https://github.com/facebookresearch/qhoptim)
-|  [RAdam](#RAdam)  |  2019  |  [On the Variance of the Adaptive Learning Rate and Beyond](https://arxiv.org/abs/1908.03265) | [RAdam](https://github.com/LiyuanLucasLiu/RAdam)
-|  [Ranger](#Ranger)  |  2019  |  [New Deep Learning Optimizer, Ranger: Synergistic combination of RAdam + LookAhead for the best of both](https://medium.com/@lessw/new-deep-learning-optimizer-ranger-synergistic-combination-of-radam-lookahead-for-the-best-of-2dc83f79a48d) | [Ranger-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer)
-|  [RangerVA](#RangerVA)  |  2019  |  [Calibrating the Adaptive Learning Rate to Improve Convergence of ADAM](https://arxiv.org/abs/1908.00700v2) | [RangerVA-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer)
-|  [A2GradExp](#A2GradExp)  |  2018  |  [Optimal Adaptive and Accelerated Stochastic Gradient Descent](https://arxiv.org/abs/1810.00553) | [A2GradExp-optim](https://github.com/severilov/A2Grad_optimizer)
-|  [A2GradInc](#A2GradInc)  |  2018  |  [Optimal Adaptive and Accelerated Stochastic Gradient Descent](https://arxiv.org/abs/1810.00553) | [A2GradInc-optim](https://github.com/severilov/A2Grad_optimizer)
-|  [A2GradUni](#A2GradUni)  |  2018  |  [Optimal Adaptive and Accelerated Stochastic Gradient Descent](https://arxiv.org/abs/1810.00553) | [A2GradUni-optim](https://github.com/severilov/A2Grad_optimizer)
-|  [PID](#PID)  |  2018  |  [A PID Controller Approach for Stochastic Optimization of Deep Networks](http://www4.comp.polyu.edu.hk/~cslzhang/paper/CVPR18_PID.pdf) | [PIDOptimizer](https://github.com/tensorboy/PIDOptimizer)
-|  [RangerQH](#RangerQH)  |  2018  |  [RangerQH *Quasi-hyperbolic momentum and Adam for deep learning](https://arxiv.org/abs/1810.06801) | [RangerQH-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer)
-|  [RangerVA](#Shampoo)  |  2018  |  [Shampoo: Preconditioned Stochastic Tensor Optimization](https://arxiv.org/abs/1802.09568) | [shampoo.pytorch](https://github.com/moskomule/shampoo.pytorch)
-|  [Yori](#Yori)  |  2018  |  [Adaptive Methods for Nonconvex Optimization](https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization) | [Yogi-Optimizer_Keras](https://github.com/4rtemi5/Yogi-Optimizer_Keras)
-|  [SWATS](#SWATS)  |  2017  | [Improving Generalization Performance by Switching from Adam to SGD](https://arxiv.org/abs/1712.07628) | [swats](https://github.com/Mrpatekful/swats)
-|  [SGDW](#SGDW)  |  2017  |  [SGDR: Stochastic Gradient Descent with Warm Restarts](https://arxiv.org/abs/1608.03983) | [SGDW-pytorch](https://github.com/pytorch/pytorch/pull/22466)
-|  [SGD](#SGD)  |  ...  |  ... | [SGD-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/sgd.py)
-|  [Adam](#Adam)  |  2015  |  [Adam: A Method for Stochastic Optimization](https://arxiv.org/pdf/1412.6980.pdf)| [Adam-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/adam.py
-)
+|  [MADGRAD](#MADGRAD)  |  2021  | [madgrad](https://github.com/facebookresearch/madgrad) | [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) 
+|  [AdaBelief](#AdaBelief)  |  2020  | [AdaBelief-optim](https://github.com/juntang-zhuang/Adabelief-Optimizer) | [AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients](https://arxiv.org/abs/2010.07468) 
+|  [AdamP](#AdamP)  |  2020  | [Adamp-optim](https://github.com/clovaai/AdamP) | [Slowing Down the Weight Norm Increase in Momentum-based Optimizers](https://arxiv.org/abs/2006.08217) 
+|  [Apollo](#Apollo)  |  2020 | [Apollo-optim](https://github.com/XuezheMax/apollo) |  [Apollo: An Adaptive Parameter-wise Diagonal Quasi-Newton Method for Nonconvex Stochastic Optimization](https://arxiv.org/abs/2009.13586) 
+|  [SGDP](#SGDP)  |  2020  | [SGDP-Clovaai](https://github.com/clovaai/AdamP) |  [Slowing Down the Weight Norm Increase in Momentum-based Optimizers](https://arxiv.org/abs/2006.08217) 
+|  [AccSGD](#AccSGD)  |  2019  | [AccSGD-optim](https://github.com/rahulkidambi/AccSGD) |  [On the insufficiency of existing momentum schemes for Stochastic Optimization](https://arxiv.org/abs/1803.05591) 
+|  [AdaBound](#AdaBound)  |  2019  | [SGD-pytorch-optim](https://github.com/Luolc/AdaBound) |  [Adaptive Gradient Methods with Dynamic Bound of Learning Rate](https://arxiv.org/abs/1902.09843)
+|  [AdaMod](#AdaMod)  |  2019  | [AdaBound-optim](https://github.com/lancopku/AdaMod) |  [An Adaptive and Momental Bound Method for Stochastic Learning](https://arxiv.org/abs/1910.12249)
+|  [AggMo](#AggMo)  |  2019  | [AdaMod-optim](https://github.com/AtheMathmo/AggMo) |  [Aggregated Momentum: Stability Through Passive Damping](https://arxiv.org/abs/1804.00325)
+|  [DiffGrad](#DiffGrad)  |  2019  | [diffGrad-optim](https://github.com/shivram1987/diffGrad) |  [diffGrad: An Optimization Method for Convolutional Neural Networks](https://arxiv.org/abs/1909.11015)
+|  [Lamb](#Lamb)  |  2019  | [Lamb-optim](https://github.com/cybertronai/pytorch-lamb) |  [Large Batch Optimization for Deep Learning: Training BERT in 76 minutes](https://arxiv.org/abs/1904.00962)
+|  [Lookahead](#Lookahead)  |  2019 | [lookahead-optim](https://github.com/alphadl/lookahead.pytorch)  |  [Lookahead Optimizer: k steps forward, 1 step back](https://arxiv.org/abs/1907.08610)
+|  [NovoGrad](#NovoGrad)  |  2019  | [NovoGrad-optim](https://github.com/NVIDIA/DeepLearningExamples/) |  [Stochastic Gradient Methods with Layer-wise Adaptive Moments for Training of Deep Networks](https://arxiv.org/abs/1905.11286) 
+|  [QHAdam](#QHAdam)  |  2019  | [QHAdam-optim](https://github.com/facebookresearch/qhoptim) |  [Quasi-hyperbolic momentum and Adam for deep learning](https://arxiv.org/abs/1810.06801)
+|  [QHM](#QHM)  |  2019   | [qhoptim](https://github.com/facebookresearch/qhoptim) |  [Quasi-hyperbolic momentum and Adam for deep learning](https://arxiv.org/abs/1810.06801)
+|  [RAdam](#RAdam)  |  2019  | [RAdam](https://github.com/LiyuanLucasLiu/RAdam)  |  [On the Variance of the Adaptive Learning Rate and Beyond](https://arxiv.org/abs/1908.03265)
+|  [Ranger](#Ranger)  |  2019   | [Ranger-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer) |  [New Deep Learning Optimizer, Ranger: Synergistic combination of RAdam + LookAhead for the best of both](https://medium.com/@lessw/new-deep-learning-optimizer-ranger-synergistic-combination-of-radam-lookahead-for-the-best-of-2dc83f79a48d)
+|  [RangerVA](#RangerVA)  |  2019  | [RangerVA-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer) |  [Calibrating the Adaptive Learning Rate to Improve Convergence of ADAM](https://arxiv.org/abs/1908.00700v2) 
+|  [A2GradExp](#A2GradExp)  |  2018   | [A2GradExp-optim](https://github.com/severilov/A2Grad_optimizer) |  [Optimal Adaptive and Accelerated Stochastic Gradient Descent](https://arxiv.org/abs/1810.00553)
+|  [A2GradInc](#A2GradInc)  |  2018   | [A2GradInc-optim](https://github.com/severilov/A2Grad_optimizer) |  [Optimal Adaptive and Accelerated Stochastic Gradient Descent](https://arxiv.org/abs/1810.00553)
+|  [A2GradUni](#A2GradUni)  |  2018  |  [A2GradUni-optim](https://github.com/severilov/A2Grad_optimizer) | [Optimal Adaptive and Accelerated Stochastic Gradient Descent](https://arxiv.org/abs/1810.00553) 
+|  [PID](#PID)  |  2018 | [PIDOptimizer](https://github.com/tensorboy/PIDOptimizer)  |  [A PID Controller Approach for Stochastic Optimization of Deep Networks](http://www4.comp.polyu.edu.hk/~cslzhang/paper/CVPR18_PID.pdf) 
+|  [RangerQH](#RangerQH)  |  2018  | [RangerQH-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer) |  [RangerQH *Quasi-hyperbolic momentum and Adam for deep learning](https://arxiv.org/abs/1810.06801)
+|  [RangerVA](#Shampoo)  |  2018  | [shampoo.pytorch](https://github.com/moskomule/shampoo.pytorch)  |  [Shampoo: Preconditioned Stochastic Tensor Optimization](https://arxiv.org/abs/1802.09568)
+|  [Yori](#Yori)  |  2018  | [Yogi-Optimizer_Keras](https://github.com/4rtemi5/Yogi-Optimizer_Keras) |  [Adaptive Methods for Nonconvex Optimization](https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization) 
+|  [SWATS](#SWATS)  |  2017  | [swats](https://github.com/Mrpatekful/swats)  | [Improving Generalization Performance by Switching from Adam to SGD](https://arxiv.org/abs/1712.07628)
+|  [SGDW](#SGDW)  |  2017  | [SGDW-pytorch](https://github.com/pytorch/pytorch/pull/22466) |  [SGDR: Stochastic Gradient Descent with Warm Restarts](https://arxiv.org/abs/1608.03983) 
+|  [SGD](#SGD)  |  ...  |  [SGD-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/sgd.py) |  ...
+|  [Adam](#Adam)  |  2015  | [Adam-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/adam.py) |  [Adam: A Method for Stochastic Optimization](https://arxiv.org/pdf/1412.6980.pdf)
 
 ---------
 ## A2GradExp
