@@ -636,7 +636,7 @@ import oput
 # model = ...
 optimizer = oput.Adam(
     model.parameters(), 
-    lr=0.0001
+    lr=0.0001,
     betas=(0.9, 0.999), 
     eps=1e-8,
     weight_decay=0
@@ -654,7 +654,7 @@ import oput
 # model = ...
 optimizer = oput.SGD(
     model.parameters(), 
-    lr=0.0001
+    lr=0.0001,
     momentum=0, 
     dampening=0,
     weight_decay=0
