@@ -7,6 +7,7 @@ Optimizer Utils
 
 | Optimizer   |      Year      |  Reference Code | Paper |
 |----------|:-------------:|:------:|------:|
+|  [Lion](#Lion)  |  2023  |  [Lion-optim](https://github.com/google/automl/blob/master/lion/lion_pytorch.py) |  [Symbolic Discovery of Optimization Algorithms](https://arxiv.org/pdf/2302.06675.pdf)
 |  [Sgem](#Sgem)  |  2022  |  [Sgem-optim](https://github.com/txping/SGEM/blob/main/optims/sgem.py) |  [SGEM: STOCHASTIC GRADIENT WITH ENERGY AND MOMENTUM](https://arxiv.org/pdf/2208.02208v1.pdf)
 |  [Adan](#Adan)  |  2022  |  [Adan-optim](https://github.com/lucidrains/Adan-pytorch) |  [Adan: Adaptive Nesterov Momentum Algorithm for Faster Optimizing Deep Models](https://arxiv.org/pdf/2208.06677.pdf)
 |  [MADGRAD](#MADGRAD)  |  2021  | [madgrad](https://github.com/facebookresearch/madgrad) | [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) 
@@ -39,6 +40,20 @@ Optimizer Utils
 |  [SGD](#SGD)  |  ...  |  [SGD-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/sgd.py) |  ...
 |  [Adam](#Adam)  |  2015  | [Adam-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/adam.py) |  [Adam: A Method for Stochastic Optimization](https://arxiv.org/pdf/1412.6980.pdf)
 
+---------
+## Lion
+```
+import oput
+
+# model = ...
+optimizer = oput.Lion(
+    model.parameters(),
+    betas=(0.9, 0.99), 
+    weight_decay=0.0
+)
+
+optimizer.step()
+```
 
 ---------
 ## Sgem
