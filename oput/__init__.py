@@ -29,7 +29,8 @@ from .yogi import Yogi
 from .adan import Adan
 from .adam import Adam
 from .sgd import SGD
-from .sgem import SGEM
+from .lion import Lion
+from .sam import SAM
 
 __all__ = (
     'Adan',
@@ -49,6 +50,7 @@ __all__ = (
     'DiffGrad',
     'LARS',
     'Lamb',
+    'Lion',
     'Lookahead',
     'MADGRAD',
     'NovoGrad',
@@ -59,7 +61,7 @@ __all__ = (
     'Ranger',
     'RangerQH',
     'RangerVA',
-    'SGEM',
+    'SAM',
     'SGDP',
     'SGDW',
     'SWATS',
@@ -83,6 +85,7 @@ _package_opts = [
     DiffGrad,
     LARS,
     Lamb,
+    Lion,
     Lookahead,
     MADGRAD,
     NovoGrad,
@@ -93,7 +96,7 @@ _package_opts = [
     Ranger,
     RangerQH,
     RangerVA,
-    SGEM,
+    SAM,
     SGDP,
     SGDW,
     SGD,
