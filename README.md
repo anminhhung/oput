@@ -3,207 +3,21 @@
 Optimizer Utils
 
 
-**torch-optimizer** -- collection of optimizers for PyTorch_ compatible with optim_
-module.
-
-
-Simple example
---------------
-
-.. code:: python
-
-    import torch_optimizer as optim
-
-    # model = ...
-    optimizer = optim.DiffGrad(model.parameters(), lr=0.001)
-    optimizer.step()
-
-
-Installation
-------------
-Installation process is simple, just::
-
-    $ pip install torch_optimizer
-
-
-Documentation
--------------
-https://pytorch-optimizer.rtfd.io
-
-
-Citation
---------
-Please cite original authors of optimization algorithms. If you like this
-package::
-
-    @software{Novik_torchoptimizers,
-    	title        = {{torch-optimizer -- collection of optimization algorithms for PyTorch.}},
-    	author       = {Novik, Mykola},
-    	year         = 2020,
-    	month        = 1,
-    	version      = {1.0.1}
-    }
-
-Or use github feature: "cite this repository" button.
-
-
-Supported Optimizers
-====================
-
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `A2GradExp`_  | https://arxiv.org/abs/1810.00553                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `A2GradInc`_  | https://arxiv.org/abs/1810.00553                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `A2GradUni`_  | https://arxiv.org/abs/1810.00553                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `AccSGD`_     | https://arxiv.org/abs/1803.05591                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `AdaBelief`_  | https://arxiv.org/abs/2010.07468                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `AdaBound`_   | https://arxiv.org/abs/1902.09843                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `AdaMod`_     | https://arxiv.org/abs/1910.12249                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `Adafactor`_  | https://arxiv.org/abs/1804.04235                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `Adahessian`_ | https://arxiv.org/abs/2006.00719                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `AdamP`_      | https://arxiv.org/abs/2006.08217                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `AggMo`_      | https://arxiv.org/abs/1804.00325                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `Apollo`_     | https://arxiv.org/abs/2009.13586                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `DiffGrad`_   | https://arxiv.org/abs/1909.11015                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `Lamb`_       | https://arxiv.org/abs/1904.00962                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `Lookahead`_  | https://arxiv.org/abs/1907.08610                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `MADGRAD`_    | https://arxiv.org/abs/2101.11075                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `NovoGrad`_   | https://arxiv.org/abs/1905.11286                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `PID`_        | https://www4.comp.polyu.edu.hk/~cslzhang/paper/CVPR18_PID.pdf                                                                        |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `QHAdam`_     | https://arxiv.org/abs/1810.06801                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `QHM`_        | https://arxiv.org/abs/1810.06801                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `RAdam`_      | https://arxiv.org/abs/1908.03265                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `Ranger`_     | https://medium.com/@lessw/new-deep-learning-optimizer-ranger-synergistic-combination-of-radam-lookahead-for-the-best-of-2dc83f79a48d |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `RangerQH`_   | https://arxiv.org/abs/1810.06801                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `RangerVA`_   | https://arxiv.org/abs/1908.00700v2                                                                                                   |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `SGDP`_       | https://arxiv.org/abs/2006.08217                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `SGDW`_       | https://arxiv.org/abs/1608.03983                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `SWATS`_      | https://arxiv.org/abs/1712.07628                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `Shampoo`_    | https://arxiv.org/abs/1802.09568                                                                                                     |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-|               |                                                                                                                                      |
-| `Yogi`_       | https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization                                                        |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------+
-
-
-Visualizations
---------------
-Visualizations help us to see how different algorithms deal with simple
-situations like: saddle points, local minima, valleys etc, and may provide
-interesting insights into inner workings of algorithm. Rosenbrock_ and Rastrigin_
-benchmark_ functions was selected, because:
-
-* Rosenbrock_ (also known as banana function), is non-convex function that has
-  one global minima  `(1.0. 1.0)`. The global minimum is inside a long,
-  narrow, parabolic shaped flat valley. To find the valley is trivial. To
-  converge to the global minima, however, is difficult. Optimization
-  algorithms might pay a lot of attention to one coordinate, and have
-  problems to follow valley which is relatively flat.
-
- .. image::  https://upload.wikimedia.org/wikipedia/commons/3/32/Rosenbrock_function.svg
-
-* Rastrigin_ function is a non-convex and has one global minima in `(0.0, 0.0)`.
-  Finding the minimum of this function is a fairly difficult problem due to
-  its large search space and its large number of local minima.
-
-  .. image::  https://upload.wikimedia.org/wikipedia/commons/8/8b/Rastrigin_function.png
-
-Each optimizer performs `501` optimization steps. Learning rate is best one found
-by hyper parameter search algorithm, rest of tuning parameters are default. It
-is very easy to extend script and tune other optimizer parameters.
-
-
-.. code::
-
-    python examples/viz_optimizers.py
-
-
-Warning
--------
-Do not pick optimizer based on visualizations, optimization approaches
-have unique properties and may be tailored for different purposes or may
-require explicit learning rate schedule etc. Best way to find out, is to try one
-on your particular problem and see if it improves scores.
-
-If you do not know which optimizer to use start with built in SGD/Adam, once
-training logic is ready and baseline scores are established, swap optimizer and
-see if there is any improvement.
-
 
 A2GradExp
 ---------
 
-+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_A2GradExp.png   |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_A2GradExp.png  |
-+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.A2GradExp(
+    optimizer = oput.A2GradExp(
         model.parameters(),
-        kappa=1000.0,
         beta=10.0,
         lips=10.0,
         rho=0.5,
     )
-    optimizer.step()
 
 
 **Paper**: *Optimal Adaptive and Accelerated Stochastic Gradient Descent* (2018) [https://arxiv.org/abs/1810.00553]
@@ -214,22 +28,16 @@ A2GradExp
 A2GradInc
 ---------
 
-+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_A2GradInc.png   |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_A2GradInc.png  |
-+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.A2GradInc(
+    optimizer = oput.A2GradInc(
         model.parameters(),
-        kappa=1000.0,
         beta=10.0,
         lips=10.0,
     )
-    optimizer.step()
 
 
 **Paper**: *Optimal Adaptive and Accelerated Stochastic Gradient Descent* (2018) [https://arxiv.org/abs/1810.00553]
@@ -240,22 +48,16 @@ A2GradInc
 A2GradUni
 ---------
 
-+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_A2GradUni.png   |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_A2GradUni.png  |
-+--------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.A2GradUni(
+    optimizer = oput.A2GradUni(
         model.parameters(),
-        kappa=1000.0,
         beta=10.0,
         lips=10.0,
     )
-    optimizer.step()
 
 
 **Paper**: *Optimal Adaptive and Accelerated Stochastic Gradient Descent* (2018) [https://arxiv.org/abs/1810.00553]
@@ -266,16 +68,12 @@ A2GradUni
 AccSGD
 ------
 
-+-----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_AccSGD.png   |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_AccSGD.png  |
-+-----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.AccSGD(
+    optimizer = oput.AccSGD(
         model.parameters(),
         lr=1e-3,
         kappa=1000.0,
@@ -283,7 +81,6 @@ AccSGD
         small_const=0.7,
         weight_decay=0
     )
-    optimizer.step()
 
 
 **Paper**: *On the insufficiency of existing momentum schemes for Stochastic Optimization* (2019) [https://arxiv.org/abs/1803.05591]
@@ -294,17 +91,13 @@ AccSGD
 AdaBelief
 ---------
 
-+-------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_AdaBelief.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_AdaBelief.png |
-+-------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.AdaBelief(
-        m.parameters(),
+    optimizer = oput.AdaBelief(
+        model.parameters(),
         lr= 1e-3,
         betas=(0.9, 0.999),
         eps=1e-3,
@@ -314,7 +107,6 @@ AdaBelief
         fixed_decay=False,
         rectify=False,
     )
-    optimizer.step()
 
 
 **Paper**: *AdaBelief Optimizer, adapting stepsizes by the belief in observed gradients* (2020) [https://arxiv.org/abs/2010.07468]
@@ -325,17 +117,13 @@ AdaBelief
 AdaBound
 --------
 
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_AdaBound.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_AdaBound.png |
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.AdaBound(
-        m.parameters(),
+    optimizer = oput.AdaBound(
+        model.parameters(),
         lr= 1e-3,
         betas= (0.9, 0.999),
         final_lr = 0.1,
@@ -344,7 +132,6 @@ AdaBound
         weight_decay=0,
         amsbound=False,
     )
-    optimizer.step()
 
 
 **Paper**: *Adaptive Gradient Methods with Dynamic Bound of Learning Rate* (2019) [https://arxiv.org/abs/1902.09843]
@@ -353,112 +140,35 @@ AdaBound
 
 AdaMod
 ------
-AdaMod method restricts the adaptive learning rates with adaptive and momental
-upper bounds. The dynamic learning rate bounds are based on the exponential
-moving averages of the adaptive learning rates themselves, which smooth out
-unexpected large learning rates and stabilize the training of deep neural networks.
-
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_AdaMod.png    |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_AdaMod.png   |
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.AdaMod(
-        m.parameters(),
+    optimizer = oput.AdaMod(
+        model.parameters(),
         lr= 1e-3,
         betas=(0.9, 0.999),
         beta3=0.999,
         eps=1e-8,
         weight_decay=0,
     )
-    optimizer.step()
 
 **Paper**: *An Adaptive and Momental Bound Method for Stochastic Learning.* (2019) [https://arxiv.org/abs/1910.12249]
 
 **Reference Code**: https://github.com/lancopku/AdaMod
 
-
-Adafactor
----------
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_Adafactor.png |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_Adafactor.png |
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-
-.. code:: python
-
-    import torch_optimizer as optim
-
-    # model = ...
-    optimizer = optim.Adafactor(
-        m.parameters(),
-        lr= 1e-3,
-        eps2= (1e-30, 1e-3),
-        clip_threshold=1.0,
-        decay_rate=-0.8,
-        beta1=None,
-        weight_decay=0.0,
-        scale_parameter=True,
-        relative_step=True,
-        warmup_init=False,
-    )
-    optimizer.step()
-
-**Paper**: *Adafactor: Adaptive Learning Rates with Sublinear Memory Cost.* (2018) [https://arxiv.org/abs/1804.04235]
-
-**Reference Code**: https://github.com/pytorch/fairseq/blob/master/fairseq/optim/adafactor.py
-
-
-Adahessian
-----------
-+-------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_Adahessian.png |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_Adahessian.png  |
-+-------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-
-.. code:: python
-
-    import torch_optimizer as optim
-
-    # model = ...
-    optimizer = optim.Adahessian(
-        m.parameters(),
-        lr= 1.0,
-        betas= (0.9, 0.999),
-        eps= 1e-4,
-        weight_decay=0.0,
-        hessian_power=1.0,
-    )
-	  loss_fn(m(input), target).backward(create_graph = True) # create_graph=True is necessary for Hessian calculation
-    optimizer.step()
-
-
-**Paper**: *ADAHESSIAN: An Adaptive Second Order Optimizer for Machine Learning* (2020) [https://arxiv.org/abs/2006.00719]
-
-**Reference Code**: https://github.com/amirgholami/adahessian
-
-
 AdamP
 ------
-AdamP propose a simple and effective solution: at each iteration of Adam optimizer
-applied on scale-invariant weights (e.g., Conv weights preceding a BN layer), AdamP
-remove the radial component (i.e., parallel to the weight vector) from the update vector.
-Intuitively, this operation prevents the unnecessary update along the radial direction
-that only increases the weight norm without contributing to the loss minimization.
-
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_AdamP.png     |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_AdamP.png    |
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.AdamP(
-        m.parameters(),
+    optimizer = oput.AdamP(
+        model.parameters(),
         lr= 1e-3,
         betas=(0.9, 0.999),
         eps=1e-8,
@@ -476,17 +186,13 @@ that only increases the weight norm without contributing to the loss minimizatio
 AggMo
 -----
 
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_AggMo.png     |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_AggMo.png    |
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.AggMo(
-        m.parameters(),
+    optimizer = oput.AggMo(
+        model.parameters(),
         lr= 1e-3,
         betas=(0.0, 0.9, 0.99),
         weight_decay=0,
@@ -501,17 +207,13 @@ AggMo
 Apollo
 ------
 
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_Apollo.png    |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_Apollo.png   |
-+------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.Apollo(
-        m.parameters(),
+    optimizer = oput.Apollo(
+        model.parameters(),
         lr= 1e-2,
         beta=0.9,
         eps=1e-4,
@@ -528,22 +230,14 @@ Apollo
 
 DiffGrad
 --------
-Optimizer based on the difference between the present and the immediate past
-gradient, the step size is adjusted for each parameter in such
-a way that it should have a larger step size for faster gradient changing
-parameters and a lower step size for lower gradient changing parameters.
-
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_DiffGrad.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_DiffGrad.png  |
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
 
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.DiffGrad(
-        m.parameters(),
+    optimizer = oput.DiffGrad(
+        model.parameters(),
         lr= 1e-3,
         betas=(0.9, 0.999),
         eps=1e-8,
@@ -559,17 +253,13 @@ parameters and a lower step size for lower gradient changing parameters.
 Lamb
 ----
 
-+--------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_Lamb.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_Lamb.png  |
-+--------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.Lamb(
-        m.parameters(),
+    optimizer = oput.Lamb(
+        model.parameters(),
         lr= 1e-3,
         betas=(0.9, 0.999),
         eps=1e-8,
@@ -585,18 +275,14 @@ Lamb
 Lookahead
 ---------
 
-+-----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_LookaheadYogi.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_LookaheadYogi.png  |
-+-----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
     # base optimizer, any other optimizer can be used like Adam or DiffGrad
-    yogi = optim.Yogi(
-        m.parameters(),
+    yogi = oput.Yogi(
+        model.parameters(),
         lr= 1e-2,
         betas=(0.9, 0.999),
         eps=1e-3,
@@ -604,7 +290,7 @@ Lookahead
         weight_decay=0,
     )
 
-    optimizer = optim.Lookahead(yogi, k=5, alpha=0.5)
+    optimizer = oput.Lookahead(yogi, k=5, alpha=0.5)
     optimizer.step()
 
 
@@ -616,17 +302,13 @@ Lookahead
 MADGRAD
 ---------
 
-+-----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_MADGRAD.png        |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_MADGRAD.png        |
-+-----------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.MADGRAD(
-        m.parameters(),
+    optimizer = oput.MADGRAD(
+        model.parameters(),
         lr=1e-2,
         momentum=0.9,
         weight_decay=0,
@@ -643,17 +325,13 @@ MADGRAD
 NovoGrad
 --------
 
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_NovoGrad.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_NovoGrad.png  |
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.NovoGrad(
-        m.parameters(),
+    optimizer = oput.NovoGrad(
+        model.parameters(),
         lr= 1e-3,
         betas=(0.9, 0.999),
         eps=1e-8,
@@ -672,17 +350,13 @@ NovoGrad
 PID
 ---
 
-+-------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_PID.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_PID.png  |
-+-------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.PID(
-        m.parameters(),
+    optimizer = oput.PID(
+        model.parameters(),
         lr=1e-3,
         momentum=0,
         dampening=0,
@@ -701,16 +375,12 @@ PID
 QHAdam
 ------
 
-+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_QHAdam.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_QHAdam.png  |
-+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.QHAdam(
+    optimizer = oput.QHAdam(
         m.parameters(),
         lr= 1e-3,
         betas=(0.9, 0.999),
@@ -736,11 +406,11 @@ QHM
 
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.QHM(
-        m.parameters(),
+    optimizer = oput.QHM(
+        model.parameters(),
         lr=1e-3,
         momentum=0,
         nu=0.7,
@@ -758,19 +428,13 @@ QHM
 RAdam
 -----
 
-+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_RAdam.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_RAdam.png  |
-+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-
-Deprecated, please use version provided by PyTorch_.
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.RAdam(
-        m.parameters(),
+    optimizer = oput.RAdam(
+        model.parameters(),
         lr= 1e-3,
         betas=(0.9, 0.999),
         eps=1e-8,
@@ -787,17 +451,13 @@ Deprecated, please use version provided by PyTorch_.
 Ranger
 ------
 
-+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_Ranger.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_Ranger.png  |
-+----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.Ranger(
-        m.parameters(),
+    optimizer = oput.Ranger(
+        model.parameters(),
         lr=1e-3,
         alpha=0.5,
         k=6,
@@ -817,17 +477,13 @@ Ranger
 RangerQH
 --------
 
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_RangerQH.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_RangerQH.png  |
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.RangerQH(
-        m.parameters(),
+    optimizer = oput.RangerQH(
+        model.parameters(),
         lr=1e-3,
         betas=(0.9, 0.999),
         nus=(.7, 1.0),
@@ -848,17 +504,13 @@ RangerQH
 RangerVA
 --------
 
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_RangerVA.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_RangerVA.png  |
-+------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.RangerVA(
-        m.parameters(),
+    optimizer = oput.RangerVA(
+        model.parameters(),
         lr=1e-3,
         alpha=0.5,
         k=6,
@@ -882,17 +534,13 @@ RangerVA
 SGDP
 ----
 
-+--------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_SGDP.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_SGDP.png  |
-+--------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.SGDP(
-        m.parameters(),
+    optimizer = oput.SGDP(
+        model.parameters(),
         lr= 1e-3,
         momentum=0,
         dampening=0,
@@ -912,17 +560,13 @@ SGDP
 SGDW
 ----
 
-+--------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_SGDW.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_SGDW.png  |
-+--------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.SGDW(
-        m.parameters(),
+    optimizer = oput.SGDW(
+        model.parameters(),
         lr= 1e-3,
         momentum=0,
         dampening=0,
@@ -940,16 +584,12 @@ SGDW
 SWATS
 -----
 
-+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_SWATS.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_SWATS.png  |
-+---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.SWATS(
+    optimizer = oput.SWATS(
         model.parameters(),
         lr=1e-1,
         betas=(0.9, 0.999),
@@ -969,17 +609,13 @@ SWATS
 Shampoo
 -------
 
-+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_Shampoo.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_Shampoo.png  |
-+-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import oput
 
     # model = ...
-    optimizer = optim.Shampoo(
-        m.parameters(),
+    optimizer = oput.Shampoo(
+        model.parameters(),
         lr=1e-1,
         momentum=0.0,
         weight_decay=0.0,
@@ -997,20 +633,13 @@ Shampoo
 Yogi
 ----
 
-Yogi is optimization algorithm based on ADAM with more fine grained effective
-learning rate control, and has similar theoretical guarantees on convergence as ADAM.
-
-+--------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_Yogi.png  |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_Yogi.png  |
-+--------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-
 .. code:: python
 
-    import torch_optimizer as optim
+    import optim
 
     # model = ...
     optimizer = optim.Yogi(
-        m.parameters(),
+        model.parameters(),
         lr= 1e-2,
         betas=(0.9, 0.999),
         eps=1e-3,
