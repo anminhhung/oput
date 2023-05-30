@@ -607,21 +607,47 @@ Yogi
 
 **Reference Code**: https://github.com/4rtemi5/Yogi-Optimizer_Keras
 
-
-Adam (PyTorch built-in)
 -----------------------
+Adam 
 
-+---------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_Adam.png   |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_Adam.png  |
-+---------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+```
+    import oput
 
-SGD (PyTorch built-in)
+    # model = ...
+    optimizer = oput.Adam(
+        model.parameters(), 
+        lr=0.0001
+        betas=(0.9, 0.999), 
+        eps=1e-8,
+        weight_decay=0
+    )
+    optimizer.step()
+```
+
+**Paper**: *Adam: A Method for Stochastic Optimization* (2015) [https://arxiv.org/pdf/1412.6980.pdf]
+
+**Reference Code**: https://github.com/pytorch/pytorch/blob/main/torch/optim/adam.py
+
 ----------------------
+SGD
 
-+--------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
-| .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rastrigin_SGD.png   |  .. image:: https://raw.githubusercontent.com/jettify/pytorch-optimizer/master/docs/rosenbrock_SGD.png  |
-+--------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------+
+```
+    import oput
 
+    # model = ...
+    optimizer = oput.SGD(
+        model.parameters(), 
+        lr=0.0001
+        momentum=0, 
+        dampening=0,
+        weight_decay=0
+    )
+    optimizer.step()
+```
+**Reference Code**: https://github.com/pytorch/pytorch/blob/main/torch/optim/sgd.py
+
+
+------
 .. _Python: https://www.python.org
 .. _PyTorch: https://github.com/pytorch/pytorch
 .. _Rastrigin: https://en.wikipedia.org/wiki/Rastrigin_function
