@@ -33,7 +33,7 @@ Optimizer Utils
 |  [PID](#PID)  |  2018 | [PIDOptimizer](https://github.com/tensorboy/PIDOptimizer)  |  [A PID Controller Approach for Stochastic Optimization of Deep Networks](http://www4.comp.polyu.edu.hk/~cslzhang/paper/CVPR18_PID.pdf) 
 |  [RangerQH](#RangerQH)  |  2018  | [RangerQH-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer) |  [RangerQH *Quasi-hyperbolic momentum and Adam for deep learning](https://arxiv.org/abs/1810.06801)
 |  [RangerVA](#Shampoo)  |  2018  | [shampoo.pytorch](https://github.com/moskomule/shampoo.pytorch)  |  [Shampoo: Preconditioned Stochastic Tensor Optimization](https://arxiv.org/abs/1802.09568)
-|  [Yori](#Yori)  |  2018  | [Yogi-Optimizer_Keras](https://github.com/4rtemi5/Yogi-Optimizer_Keras) |  [Adaptive Methods for Nonconvex Optimization](https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization) 
+|  [Yogi](#Yogi)  |  2018  | [Yogi-Optimizer](https://github.com/4rtemi5/Yogi-Optimizer_Keras) |  [Adaptive Methods for Nonconvex Optimization](https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization) 
 |  [SWATS](#SWATS)  |  2017  | [swats](https://github.com/Mrpatekful/swats)  | [Improving Generalization Performance by Switching from Adam to SGD](https://arxiv.org/abs/1712.07628)
 |  [SGDW](#SGDW)  |  2017  | [SGDW-pytorch](https://github.com/pytorch/pytorch/pull/22466) |  [SGDR: Stochastic Gradient Descent with Warm Restarts](https://arxiv.org/abs/1608.03983) 
 |  [SGD](#SGD)  |  ...  |  [SGD-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/sgd.py) |  ...
