@@ -645,12 +645,3 @@ optimizer = oput.SGD(
 optimizer.step()
 ```
 **Reference Code**: https://github.com/pytorch/pytorch/blob/main/torch/optim/sgd.py
-
-
-------
-.. _Python: https://www.python.org
-.. _PyTorch: https://github.com/pytorch/pytorch
-.. _Rastrigin: https://en.wikipedia.org/wiki/Rastrigin_function
-.. _Rosenbrock: https://en.wikipedia.org/wiki/Rosenbrock_function
-.. _benchmark: https://en.wikipedia.org/wiki/Test_functions_for_optimization
-.. _optim: https://pytorch.org/docs/stable/optim.html
