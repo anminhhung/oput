@@ -1,19 +1,3 @@
-"""torch-optimizer -- collection of of optimization algorithms for PyTorch.
-
-API and usage patterns are the same as `torch.optim`__
-
-Example
--------
-
->>> import torch_optimizer as optim
-# model = ...
->>> optimizer = optim.DiffGrad(model.parameters(), lr=0.001)
->>> optimizer.step()
-
-See documentation for full list of supported optimizers.
-
-__ https://pytorch.org/docs/stable/optim.html#module-torch.optim
-"""
 from typing import Dict, List, Type
 
 from pytorch_ranger import Ranger, RangerQH, RangerVA
@@ -23,8 +7,6 @@ from .a2grad import A2GradExp, A2GradInc, A2GradUni
 from .accsgd import AccSGD
 from .adabelief import AdaBelief
 from .adabound import AdaBound
-from .adafactor import Adafactor
-from .adahessian import Adahessian
 from .adamod import AdaMod
 from .adamp import AdamP
 from .aggmo import AggMo
@@ -44,8 +26,14 @@ from .sgdw import SGDW
 from .shampoo import Shampoo
 from .swats import SWATS
 from .yogi import Yogi
+from .adan import Adan
+from .adam import Adam
+from .sgd import SGD
+from .sgem import SGEM
 
 __all__ = (
+    'Adan',
+    'Adam',
     'A2GradExp',
     'A2GradInc',
     'A2GradUni',
@@ -71,18 +59,21 @@ __all__ = (
     'Ranger',
     'RangerQH',
     'RangerVA',
+    'SGEM',
     'SGDP',
     'SGDW',
     'SWATS',
     'Shampoo',
+    'SGD',
     'Yogi',
-    # utils
     'get',
 )
 __version__ = '0.3.1a0'
 
 
 _package_opts = [
+    Adan,
+    Adam,
     AdaBelief,
     AccSGD,
     AdaBound,
@@ -102,8 +93,10 @@ _package_opts = [
     Ranger,
     RangerQH,
     RangerVA,
+    SGEM,
     SGDP,
     SGDW,
+    SGD.
     SWATS,
     Shampoo,
     Yogi,
