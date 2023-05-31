@@ -2,6 +2,10 @@
 
 Optimizer Utils
 
+```
+pip install git+https://github.com/anminhhung/oput
+```
+
 ----
 # Updates
 
