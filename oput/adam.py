@@ -1,13 +1,38 @@
-from typing import List, Optional
+from collections import defaultdict
+from typing import List, Dict, Tuple, Optional, Union
 
 import torch
 from torch import Tensor
+from torch.autograd.grad_mode import no_grad
+
 from .optimizer import (Optimizer, _use_grad_for_differentiable, _get_value, _stack_if_compiling,
                         _dispatch_sqrt, _default_to_fused_or_foreach, _capturable_doc,
                         _differentiable_doc, _foreach_doc, _fused_doc, _maximize_doc)
-from .utils._foreach_utils import _group_tensors_by_device_and_dtype
 __all__ = ['Adam', 'adam']
 
+@no_grad()
+def _group_tensors_by_device_and_dtype(tensorlistlist: List[List[Tensor]],
+                                       with_indices: Optional[bool] = False) -> \
+        Dict[Tuple[torch.device, torch.dtype], List[List[Union[Tensor, int]]]]:
+    assert all(not x or len(x) == len(tensorlistlist[0]) for x in tensorlistlist), (
+           "all specified tensorlists must match in length")
+    per_device_and_dtype_tensors: Dict[Tuple[torch.device, torch.dtype], List[List[Union[Tensor, int]]]] = defaultdict(
+        lambda: [[] for _ in range(len(tensorlistlist) + (1 if with_indices else 0))])
+    for i, t in enumerate(tensorlistlist[0]):
+        key = (t.device, t.dtype)
+        for j in range(len(tensorlistlist)):
+            # a tensorlist may be empty/None
+            if tensorlistlist[j]:
+                per_device_and_dtype_tensors[key][j].append(tensorlistlist[j][i])
+        if with_indices:
+            # tack on previous index
+            per_device_and_dtype_tensors[key][j + 1].append(i)
+    return per_device_and_dtype_tensors
+
+def _has_foreach_support(tensors: List[Tensor], device: torch.device) -> bool:
+    if device.type not in ['cpu', 'cuda'] or torch.jit.is_scripting():
+        return False
+    return all(t is None or type(t) == torch.Tensor for t in tensors)
 
 class Adam(Optimizer):
     def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8,
