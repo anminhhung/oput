@@ -30,6 +30,8 @@ from .adan import Adan
 from .adam import Adam
 from .sgd import SGD
 from .lion import Lion
+from .momo import Momo 
+from .momo_adam import MomoAdam
 
 __all__ = (
     'Adan',
@@ -53,6 +55,8 @@ __all__ = (
     'Lookahead',
     'MADGRAD',
     'NovoGrad',
+    'Momo',
+    'MomoAdam',
     'PID',
     'QHAdam',
     'QHM',
@@ -86,6 +90,8 @@ _package_opts = [
     Lion,
     Lookahead,
     MADGRAD,
+    Momo,
+    MomoAdam,
     NovoGrad,
     PID,
     QHAdam,
