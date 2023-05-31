@@ -32,6 +32,7 @@ from .sgd import SGD
 from .lion import Lion
 from .momo import Momo 
 from .momo_adam import MomoAdam
+from .sophia import Sophia, SophiaG, DecoupledSophia
 
 __all__ = (
     'Adan',
@@ -69,6 +70,9 @@ __all__ = (
     'SWATS',
     'Shampoo',
     'SGD',
+    'Sophia', 
+    'SophiaG', 
+    'DecoupledSophia',
     'Yogi',
     'get',
 )
@@ -105,6 +109,9 @@ _package_opts = [
     SGD,
     SWATS,
     Shampoo,
+    Sophia, 
+    SophiaG, 
+    DecoupledSophia,
     Yogi,
 ]  # type: List[Type[Optimizer]]
 

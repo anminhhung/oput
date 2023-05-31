@@ -7,6 +7,8 @@ Optimizer Utils
 
 | Optimizer   |      Year      |  Reference Code | Paper |
 |----------|:-------------:|:------:|------:|
+|  [Sophia](#Sophia)  |  2023  |  [Sophia-optim](https://github.com/kyegomez/Sophia) |  [Sophia: A Scalable Stochastic Second-order Optimizer for Language Model Pre-training](https://arxiv.org/pdf/2305.14342.pdf)
+|  [Momo](#Momo)  |  2023  |  [Momo-optim](https://github.com/fabian-sp/MoMo/tree/main) |  [MoMo: Momentum Models for Adaptive Learning Rates](https://arxiv.org/pdf/2305.07583.pdf)
 |  [Lion](#Lion)  |  2023  |  [Lion-optim](https://github.com/google/automl/blob/master/lion/lion_pytorch.py) |  [Symbolic Discovery of Optimization Algorithms](https://arxiv.org/pdf/2302.06675.pdf)
 |  [Adan](#Adan)  |  2022  |  [Adan-optim](https://github.com/lucidrains/Adan-pytorch) |  [Adan: Adaptive Nesterov Momentum Algorithm for Faster Optimizing Deep Models](https://arxiv.org/pdf/2208.06677.pdf)
 |  [MADGRAD](#MADGRAD)  |  2021  | [madgrad](https://github.com/facebookresearch/madgrad) | [Adaptivity without Compromise: A Momentumized, Adaptive, Dual Averaged Gradient Method for Stochastic Optimization](https://arxiv.org/abs/2101.11075) 
@@ -38,6 +40,53 @@ Optimizer Utils
 |  [SGDW](#SGDW)  |  2017  | [SGDW-pytorch](https://github.com/pytorch/pytorch/pull/22466) |  [SGDR: Stochastic Gradient Descent with Warm Restarts](https://arxiv.org/abs/1608.03983) 
 |  [SGD](#SGD)  |  ...  |  [SGD-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/sgd.py) |  ...
 |  [Adam](#Adam)  |  2015  | [Adam-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/adam.py) |  [Adam: A Method for Stochastic Optimization](https://arxiv.org/pdf/1412.6980.pdf)
+
+
+---------
+## Momo
+
+Use Momo optimizer
+
+```
+import oput
+# model = ...
+optimizer = oput.Momo(
+    model.parameters(), 
+    lr=1e-2
+)
+```
+
+Use MomoAdam optimizer
+
+```
+import oput
+# model = ...
+optimizer = oput.MomoAdam(
+    model.parameters(), 
+    lr=1e-2
+)
+```
+
+**Note that Momo needs access to the value of the batch loss**. In the *.step()* method, you need to pass either
+
+- the loss tensor (when backward has already been done) to the argument *loss*
+- or a callable *closure* to the argument *closure* that computes gradients and returns the loss.
+
+For example:
+```
+def loss_fn(criterion, running_loss, outputs, labels):
+    loss = criterion(outputs, labels)
+    running_loss += loss.item()
+    loss.backward()
+
+    return loss
+
+# in each training step, use:
+outputs = model(images)
+optimizer.zero_grad()
+closure = lambda: loss_fn(criterion, running_loss, outputs, labels) # define a closure that return loss
+optimizer.step(closure)
+```
 
 ---------
 ## Lion
