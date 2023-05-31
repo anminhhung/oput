@@ -42,6 +42,69 @@ Optimizer Utils
 |  [Adam](#Adam)  |  2015  | [Adam-pytorch-optim](https://github.com/pytorch/pytorch/blob/main/torch/optim/adam.py) |  [Adam: A Method for Stochastic Optimization](https://arxiv.org/pdf/1412.6980.pdf)
 
 
+------
+## Sophia
+
+```
+import oput
+# model = ...
+optimizer = oput.SophiaG(
+    model.parameters(), 
+    lr=2e-4, 
+    betas=(0.965, 0.99), 
+    rho = 0.01, 
+    weight_decay=1e-1
+)
+
+optimizer.step()
+```
+
+The learning rate is a crucial hyperparameter that controls the step size of the parameter updates during the optimization process. In Decoupled Sophia, the update is written as 
+```
+p.data.addcdiv_(-group['lr'], m, h.add(group['rho']))
+```
+which is equivalent to the update in the paper up to a re-parameterization.
+
+## Tips for tuning the learning rate:
+Choose the learning rate to be about half the learning rate that you would use for AdamW. Some partial ongoing results indicate that the learning rate can be made even larger, possibly leading to faster convergence. Rho (rho) The rho parameter is used in the update rule to control the Hessian's influence on the parameter updates. It is essential to choose an appropriate value for rho to balance the trade-off between the gradient and the Hessian information.
+
+## Tips for tuning rho:
+Consider choosing rho in the range of 0.03 to 0.04. The rho value seems transferable across different model sizes. For example, rho = 0.03 can be used in 125M and 335M Sophia-G models.
+
+The (lr, rho) for 335M Sophia-G is chosen to be (2e-4, 0.03). Though we suspect that the learning rate can be larger, it's essential to experiment with different values to find the best combination for your specific use case.
+
+## Other Hyperparameters
+While the learning rate and rho are the most critical hyperparameters to tune, you may also experiment with other hyperparameters such as betas, weight_decay, and k (the frequency of Hessian updates). However, the default values provided in the optimizer should work well for most cases.
+
+Remember that hyperparameter tuning is an iterative process, and the best values may vary depending on the model architecture and dataset. Don't hesitate to experiment with different combinations and validate the performance on a held-out dataset or using cross-validation.
+
+Feel free to share your findings and experiences during hyperparameter tuning. Your valuable feedback and comments can help improve the optimizer and its usage in various scenarios.
+
+## Short-term Goals
+Ready to train plug in and play file with your own model or Andromeda
+
+Performance improvements: Investigate and implement potential performance improvements to further reduce training time and computational resources -> Decoupled Sophia + heavy metric logging + Implement in Triton and or Jax?
+
+Additional Hessian estimators: Research and implement other Hessian estimators to provide more options for users.
+
+Hyperparameter tuning: Develop a set of recommended hyperparameters for various use cases and model architectures.
+
+## Mid-term Goals
+Integration with Andromeda model: Train the Andromeda model using the Sophia optimizer and compare its performance with other optimizers.
+
+Sophia optimizer variants: Explore and develop variants of the Sophia optimizer tailored for specific tasks, such as computer vision, multi-modality AI, and natural language processing, and reinforcement learning.
+
+Distributed training: Implement support for distributed training to enable users to train large-scale models using Sophia across multiple devices and nodes.
+
+Automatic hyperparameter tuning: Develop an automatic hyperparameter tuning module to help users find the best hyperparameters for their specific use case.
+
+## Long-term Goals
+Training multiple models in parallel: Develop a framework for training multiple models concurrently with different optimizers, allowing users to test and compare the performance of various optimizers, including Sophia, on their specific tasks.
+
+Sophia optimizer for other domains: Adapt the Sophia optimizer for other domains, such as optimization in reinforcement learning, Bayesian optimization, and evolutionary algorithms.
+
+By following this roadmap, we aim to make the Sophia optimizer a powerful and versatile tool for the deep learning community, enabling users to train their models more efficiently and effectively.
+
 ---------
 ## Momo
 
